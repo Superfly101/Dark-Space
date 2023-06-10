@@ -109,7 +109,7 @@ def is_game_over():
     for enemy in enemies:
         if enemy.y +32 >= spaceship.y:
             if score >= high_score:
-                with open(r"C:\Users\Akuma\Desktop\Codes\Dark Space\score.dat", "wb") as file:
+                with open("score.dat", "wb") as file:
                     pickle.dump(score, file)
             game_over = True
             
@@ -128,15 +128,15 @@ is_valid = False
 
  # Get the high score.
 try:
-    with open(r"C:\Users\Akuma\Desktop\Codes\Dark Space\score.dat", "rb") as file:
+    with open("score.dat", "rb") as file:
         high_score = pickle.load(file)
         is_valid = True
 except FileNotFoundError:
-    with open(r"C:\Users\Akuma\Desktop\Codes\Dark Space\score.dat", "wb") as file:
+    with open("score.dat", "wb") as file:
         pickle.dump(score, file)
 finally:
     if not is_valid:
-        with open(r"C:\Users\Akuma\Desktop\Codes\Dark Space\score.dat", "rb") as file:
+        with open("score.dat", "rb") as file:
             high_score = pickle.load(file)        
 
 
